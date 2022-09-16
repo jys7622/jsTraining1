@@ -8,10 +8,38 @@
 .list-group {
   display: none;
 }
-.show {
+
+
+.black-bg {
+  width : 100%;
+  height : 100%;
+  position: fixed;
+  background: gray;
+  z-index: 5;
+  padding: 30px;
+  visibility: hidden;
+  /* display none은 아예 없애버리는 것.
+     visibility none은 안보이게만 하는 것. 
+  */
+  opacity : 0; /*투명도*/
+  transition: all 1s;
+  /* transition  -> 모든 css속성이 변할 때 1초에 걸쳐서 변하게 해주세요*/
+}
+.show{
   display: block;
 }
-
-.modal {
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+.hide {
   display: none;
+}
+
+.white-bg {
+  width: 400px;
+  height: 250px;
+  background: white;
+  border-radius: 3px;
+  padding: 30px;
 }
