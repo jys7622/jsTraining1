@@ -39,7 +39,7 @@
         id.focus(); 
           
       } else {
-        if(/\S+@\S+\.\S+/.test(id.value) ===false) {
+        if(/\S+@\S+\.\S+/.test(id.value) === false) {
           id.focus(); 
           e.preventDefault()
           console.log(id.value)
@@ -51,11 +51,20 @@
           e.preventDefault()
           alert('비밀번호를 입력해주세요.')
           pw.focus();
-        } else if(pw.value.length < 6){
+        }
+        if(pw.value.length < 6){
           e.preventDefault();
           alert('비밀번호는 6자 이상 입니다.');
           pw.focus();
-        }  
+          return
+        } 
+        if(/[A-Z]/.test(pw.value) === false){
+          console.log(/A-Z/.test(pw.value));
+          console.log(pw.value);
+          e.preventDefault();
+          alert('비밀번호에는 적어도 한개 이상의 대문자가 포함되어야 합니다.');
+          pw.focus();
+        } 
       }
     });
    </script>
