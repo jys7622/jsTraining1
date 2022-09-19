@@ -24,11 +24,11 @@
       </form> 
     </div>
    </div>
-   <script>
+   <!-- <script>
      document.getElementById('inputId').addEventListener('input', function(){
       console.log('하이')
      })
-   </script>
+   </script> -->
    <script>
     $('form').on('submit', function(e){
       const id = document.getElementById('inputId')
@@ -37,22 +37,33 @@
         e.preventDefault()
         alert('아이디를 입력해주세요.')
         id.focus(); 
-      } else if(pw.value== ''){
-        
-        e.preventDefault()
-        alert('비밀번호를 입력해주세요.')
-        pw.focus();
-      } else if(pw.value.length < 6){
-        e.preventDefault();
-        alert('비밀번호는 6자 이상 입니다.');
-        pw.focus();
+          
+      } else {
+        if(/\S+@\S+\.\S+/.test(id.value) ===false) {
+          id.focus(); 
+          e.preventDefault()
+          console.log(id.value)
+          alert('올바른 이메일 형식이 아닙니다.')
+          return
+        } 
+        if(pw.value== ''){
+      
+          e.preventDefault()
+          alert('비밀번호를 입력해주세요.')
+          pw.focus();
+        } else if(pw.value.length < 6){
+          e.preventDefault();
+          alert('비밀번호는 6자 이상 입니다.');
+          pw.focus();
+        }  
       }
     });
    </script>
    <script>
     $('#close').on('click', function(){
-      $('.black-bg').addClass('hide');
-      location.reload(); // 이거 왜 리로드 안하면 버튼 제대로 작동안하는지 물어보기
+      $('.black-bg').removeClass('show-modal');
+      // location.reload(); 
+      // 이거 왜 리로드 안하면 버튼 제대로 작동안하는지 물어보기
     });
     // document.getElementById('close').addEventListener('click', function(){
     //   document.getElementsByClassName('black-bg')[0].classList.add('hide')
@@ -62,11 +73,29 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <span class="navbar-brand">Navbar</span>
+        <span class="badge bg-dark" id = 'darkBtn'>Dark🔄</span>
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
     </nav> 
+    <script>
+      var clickCnt = 0;
+      $('#darkBtn').on('click', function(){
+        clickCnt++;
+        if(clickCnt % 2 === 0){
+          // 라이트모드
+          $('#darkBtn').html('Light🔄');
+          $('body').addClass('white')
+          
+        } else {
+          // 다크모드
+          $('#darkBtn').html('Dark🔄');
+          $('body').attr('class','dark')
+          
+        }
+      })
+    </script>
     <script>
      document.getElementsByClassName('navbar-toggler')[0].addEventListener('click', function(){
       document.getElementsByClassName('list-group')[0].classList.toggle('show');
@@ -80,6 +109,21 @@
       <li class="list-group-item">And a fifth one</li>
     </ul>
     <button id = "login">로그인</button>
+    <div class="alert alert-danger">
+      <span id ='test'>5</span>초 이내 구매시 사은품 증정!
+    </div>
+    <script>
+     var cnt = 5;
+     
+     setInterval(function(){
+      cnt -=1;
+      if(cnt >= 0){
+        $('#test').html(cnt)
+      } else {
+        $('.alert').hide()
+      }
+     }, 1000)
+    </script>
     <script>
       // $('#login').on('click', function(){
       //   $('.black-bg').addClass('show-modal');

@@ -43,3 +43,16 @@
   border-radius: 3px;
   padding: 30px;
 }
+.dark {
+  background: black;
+  color: white;
+}
+
+.white {
+  background: white;
+  color: black;
+}
+
+.alert-hide{
+  display: none;
+}
