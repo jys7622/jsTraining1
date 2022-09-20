@@ -80,7 +80,27 @@
       test2(6)
     </script>
     <script>
-      
+      function test3(num1,num2) {
+        // ms단위로 바꿔준다.
+        // num1은 분 -> 초단위로 바꾸려면 num1 * 60 이걸 다시 ms = num1 * 60 * 1000
+        // num2는 초 -> ms 단위로 바꾸려면 num2 * 1000
+        // 최종적으로 num1 + num2
+        var total = (num1 * 60 * 1000) + (num2 * 1000)
+        return total
+      }
+      test3(2,10)
+    </script>
+    <script>
+      function test4(num1,check) {
+       // 가격 * 9/10 첫 구매면 $1.5추가할인. 첫구매 판단은 true,false로 구분
+       var price = (num1 * 9/10)
+       if(check){
+        price = price - 1.5
+       }
+       console.log(price);
+       return price
+      }
+      test4(70,true)
     </script>
 </body>
 </html>

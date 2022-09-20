@@ -1,3 +1,9 @@
+/* :root {
+  scroll-behavior: auto;
+} 
+--> 부트스트랩에서 스크롤 움직임 스무스하게 바꿔주는 것을
+막는 코드.
+*/ 
 .alert-box {
   background-color: skyblue;
   padding: 20px;
@@ -53,6 +59,33 @@
   color: black;
 }
 
-.alert-hide{
-  display: none;
+.slide-container {
+  width: 300vw;
+  transition: all 1s;
+
 }
+
+.slide-box {
+  width: 100vw;
+  float: left;
+}
+
+.slide-box img {
+  width: 100%;
+}
+
+.slide-btn {
+  width: 100px;
+  margin: auto;
+  margin-top: 10px;
+}
+.navbar {
+  height: 8vh;
+  /* position: fixed; */
+  width: 100%;
+}
+
+.navbar-brand {
+  font-size : 30px;
+}
+
