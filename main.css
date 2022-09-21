@@ -13,6 +13,8 @@
 }
 .list-group {
   display: none;
+  position: sticky;
+  top : 100px
 }
 
 
@@ -21,7 +23,7 @@
   height : 100%;
   position: fixed;
   background: gray;
-  z-index: 5;
+  z-index: 12;
   padding: 30px;
   visibility: hidden;
   /* display none은 아예 없애버리는 것.
@@ -48,6 +50,7 @@
   background: white;
   border-radius: 3px;
   padding: 30px;
+  
 }
 .dark {
   background: black;
@@ -81,11 +84,55 @@
 }
 .navbar {
   height: 8vh;
-  /* position: fixed; */
   width: 100%;
+  position: fixed;
+  z-index: 5;
 }
 
 .navbar-brand {
   font-size : 30px;
+}
+.progress {
+  position: sticky;
+  z-index: 10;
+  top:80px;
+}
+
+ul.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+}
+ul.list::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.tab-button {
+  display: block;
+  padding: 10px 20px 10px 20px;
+  float: left;
+  margin-right: -1px;
+  margin-bottom: -1px;
+  color: grey;
+  text-decoration: none;
+  cursor: pointer;
+}
+.orange {
+  border-top: 2px solid orange;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid white;
+  border-left: 1px solid #ccc;
+  color: black;
+  margin-top: -2px;
+}
+.tab-content {
+  display: none;
+  padding: 10px;
+}
+
+.show-content {
+  display: block;
 }
 
