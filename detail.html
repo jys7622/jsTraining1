@@ -12,11 +12,11 @@
   <body>
     <div class="container mt-5">
       <ul class="list">
-        <li class="tab-button">Products</li>
-        <li class="tab-button orange">Information</li>
-        <li class="tab-button">Shipping</li>
-        <li class="tab-button">test1</li>
-        <li class="tab-button">test2</li>
+        <li class="tab-button" data-id="0">Products</li>
+        <li class="tab-button orange" data-id="1">Information</li>
+        <li class="tab-button" data-id="2">Shipping</li>
+        <li class="tab-button" data-id="3">test1</li>
+        <li class="tab-button" data-id="4">test2</li>
       </ul>
       <div class="tab-content">
         <p>상품설명입니다. Product</p>
@@ -33,7 +33,25 @@
       <div class="tab-content">
         <p>test2. Shipping</p>
       </div>
+      <div class="card p-3">
+      </div>
     </div> 
+    <form class="container my-5 form-group">
+      <p>상품선택</p>
+      <select class="form-select mt-2">
+        <option>모자</option>
+        <option class="shirt">셔츠</option>
+        <option>바지</option>
+      </select>
+    </form>
+    <form class="container my-5 form-group sizeForm ">
+      <select class="size select">
+        <option>95</option>
+        <option>100</option>
+        <option>105</option>
+      </select>
+    </form>
+    <div id = 'test'></div>
     <script src="tab.js"></script>
   </body>
 </html>
