@@ -77,4 +77,54 @@ document.querySelector('#test').insertAdjacentHTML('beforeend',template);
 $('#test').append(template); // 기존에 있던 태그 값에 추가해줌
 // innerHTML은 기존값을 덮어씀
 
-//바지를 선택했을 때 숫자를 바꾼다...
+// var attendance = ['흥민', '영희','철수','재석'];
+//  function testCheck(name){
+//   // for(let i = 0; i < attendance.length; i++){
+//   //   if (name === attendance[i]){
+//   //     console.log('있어요');
+//   //   } else if(name !== attendance[i]){
+//   //     console.log('없어요');
+//   //   }
+//   // }
+//   attendance.forEach(function(item){
+//     if(item === name){
+//       console.log('있어요');
+//       return false
+//     } else if(item !== name) {
+//       console.log(('없어요'));
+//        return
+//     }
+//   })
+//  }
+//  testCheck('재석')
+
+//  function multiple(){
+//   // 첫번째 숫자(2~9), 두번째 숫자를 곱한다. 곱한 후 숫자 한개씩 증가 한다.
+//   for(var i = 2; i < 10; i++){
+//    for(var j = 1; j < 10; j++){
+//     console.log(i*j);
+//    }
+//   }
+//  }
+// multiple()
+ var score1 = [10,20,30,40];
+ 
+ function aver(arr, num) {
+  // 평균을 구한다.
+  // 10 + 20 + 30 + 40 / 4
+  // 각각의 요소들을 모두 더한 후 배열의 길이만큼 나눈다.
+  // console.log((score1[0] + score1[1] + score1[2] + score1[3])/ score1.length);
+  let sum = 0;
+  let aver = 0;
+  arr.forEach(function(item){
+    sum += item;
+    aver = sum / arr.length
+  })
+  if(aver < num){
+    console.log(`평균보다 ${num-aver}점이 떨어졌네요 재수추천`);
+  } else {
+    console.log(`평균보다 ${aver-num}점이 올랐네요`);
+  }
+
+ }
+  aver([25,25,25,25],10);
