@@ -1,9 +1,9 @@
 
 var products = [
-  { id : 0, price : 70000, title : 'Blossom Dress' },
-  { id : 1, price : 50000, title : 'Springfield Shirt' },
-  { id : 2, price : 60000, title : 'Black Monastery' },
-  { id : 3, price : 80000, title : '쿠아아악' }
+  { id : 0, price : 70000, title : 'Blossom Dress', cnt : 0 },
+  { id : 1, price : 50000, title : 'Springfield Shirt',cnt : 0 },
+  { id : 2, price : 60000, title : 'Black Monastery',cnt : 0 },
+  { id : 3, price : 80000, title : '쿠아아악',cnt : 0 }
 ];
 
 $('.card-body1 h5').html(products[0].title)
@@ -33,6 +33,7 @@ num.forEach(function(i){
   <img src="https://via.placeholder.com/600" class="w-100">
   <h5>${i.title}</h5>
   <p>가격 : ${i.price}</p>
+  <p id='cntText'>${i.cnt}</p>
   <button class="buyBtn">구매</button>
 </div>`)
 })
@@ -156,21 +157,42 @@ localStorage.setItem('num', newArr)
   // 1. 형제요소 찾는 법(sibling)
   // 2. LS에 cart라는 배열이 없을 때는 새로운 배열 추가
   // 3. cart라는 배열이 있을 때는 기존에 있는 cart라는 배열 수정
-var testArr = []
-var testarrrr = [1,4,5]
+var testArr = [];
+var testarrrr = [1,4,5];
+var dupYn = false
+var cartCnt ={cnt : 0}
+var filterArr = []
 $('.buyBtn').click(function(e){
+  // 구매버튼 클릭하면 클릭한 버튼에 해당하는 정보의 cnt에 +1 해줘
   var sible = $(e.target).siblings('h5').text();
-  
-  testArr.push(sible)
-  if(localStorage.getItem('proName') != null){
- localStorage.setItem('proName', JSON.stringify(testArr))
-} else {
-  localStorage.setItem('proName',JSON.stringify([sible]))
-}
+  var testCheckCnt = parseInt($(e.target).siblings('#cntText').text());
+  // console.log("testCheckCnt",testCheckCnt);
+  var cart = {name :sible , count : testCheckCnt}
+   cart.count = cartCnt.cnt 
+  // var checkDup = testArr.some(v => v.name === sible);
+  // if(checkDup) {
+  //   alert('중복입니당')
+  // }
+  testArr.push(cart);
+  var found = testArr.find(item => item.name === sible)
+  if(sible === found.name){
+    found.count++;
 
+  }
+  // testArr.push(found);
+
+  filterArr = testArr.filter(item => 
+    item. count > 0
+  )
+  localStorage.setItem('proName', JSON.stringify(filterArr))
+  // 배열에 있는 객체를 꺼내서 보여준다.
+  console.log(filterArr);
 })
 // cart.html 새로 만들어서 장바구니에 들어가있는 상품명들 다 진열하기.
+var test23 = localStorage.getItem('proName')
+var proName1 = `<h5>${filterArr[0]}</h5>`
 var proName = `<h5>${localStorage.getItem('proName')}</h5>`
+var proCnt = `<p>${JSON.parse(test23)}</p>`
 $('.displayBtn').click(function(){
   $('.proName').append(proName)
 })
