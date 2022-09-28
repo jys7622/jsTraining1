@@ -184,7 +184,6 @@ $('.buyBtn').click(function (e) {
   filterArr = testArr.filter((item) => item.count > 0);
   localStorage.setItem('proName', JSON.stringify(filterArr));
   // 배열에 있는 객체를 꺼내서 보여준다.
-  console.log(filterArr);
 });
 // cart.html 새로 만들어서 장바구니에 들어가있는 상품명들 다 진열하기.
 var test23 = localStorage.getItem('proName');
@@ -193,7 +192,5 @@ var proCnt = JSON.parse(test23); // test23은 JSON.stringify를통해 문자열�
 $('.displayBtn').click(function () {
   proCnt.map((item) => {
     $('.proInfo').append(`${item.name} : ${item.count} `);
-    console.log(item.name);
   });
 });
-//테스트테스트1111gitasfasfasfasf124512512551555555555
