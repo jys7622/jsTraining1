@@ -1,0 +1,41 @@
+.top{
+  height: 10vh;
+  background-color: black;
+  color: white;
+  align-items: center;
+}
+.top h5 {
+  margin-left: 20px;
+}
+
+.main-body{
+  background-color: gainsboro;
+  height: 90vh;
+}
+.main-body img {
+  height: 100px;
+  width: 100px;
+}
+.proCard {
+  height: 250px;
+  width: 200px;
+  margin-left: 20px;
+  background-color: white;
+}
+
+.card-container {
+  display: flex;
+}
+.proCard div{
+  margin-top: 5px;
+}
+
+.proCard img{
+  margin-left : 50px;
+  margin-right : 50px;
+}
+
+.buyBtn{
+  background-color: black;
+  color: red;
+}
