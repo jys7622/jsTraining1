@@ -1,3 +1,4 @@
+
 .top{
   height: 10vh;
   background-color: black;
@@ -11,6 +12,7 @@
 .main-body{
   background-color: gainsboro;
   height: 90vh;
+  overflow-x: scroll;
 }
 .main-body img {
   height: 100px;
@@ -29,13 +31,33 @@
 .proCard div{
   margin-top: 5px;
 }
+.proCard {
+  margin-top: 20px;
+}
 
 .proCard img{
   margin-left : 50px;
   margin-right : 50px;
+  
 }
 
 .buyBtn{
   background-color: black;
   color: red;
+}
+
+.proStore-container {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  background-color: black;
+}
+
+.proStore-container > .proCard {
+  border: 1px solid goldenrod;
+}
+.hidden {
+  display: none;
+}
+.proCard1 {
+  color: white;
 }
