@@ -1,0 +1,68 @@
+
+.shop-container {
+  width: 100vw;
+  height: 3000px;
+  background-color: blanchedalmond;
+}
+.header {
+  width: 100vw;
+  height: 10vh;
+  background-color:black;
+  align-items: center;
+  color: white;
+}
+.header h5{
+  margin-left: 10px;
+}
+.proList-container img {
+  width: 100px;
+  height: 100px;
+}
+.proList-container {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  
+}
+.proList {
+  height: 250px;
+  width: 200px;
+  background-color: white;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  
+}
+
+.cart-container img {
+  width: 100px;
+  height: 100px;
+}
+
+.cart-container {
+  width: 80vw;
+  height: 1000px;
+  background-color: brown;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  
+}
+.cartList {
+  height: 250px;
+  width: 200px;
+  background-color: white;
+  text-align: center;
+  display: table-cell;
+  vertical-align: middle;
+  
+}
+.modal-container {
+  background-color: white;
+  width: 400px;
+  height: 150px;
+  display: none;
+}
+
+.modalShow{
+  display: block;
+}

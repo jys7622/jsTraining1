@@ -90,7 +90,7 @@ $.get('store.json').then((data=>{
   products = data.products
   for (var i = 0; i < data.products.length; i++) {
         $('.card-container').append(`
-          <div class='proCard'>
+          <div class='proCard' draggable="true" data-id="${data.products[i].id}">
             <img src='${data.products[i].photo}'>
             <div class='title'>${data.products[i].title}</div>
             <div class='brand'>${data.products[i].brand}</div>
@@ -99,7 +99,6 @@ $.get('store.json').then((data=>{
           </div> 
         `)
   }
-
   $('.buyBtn').click(function(e){
     let proId = e.target.dataset.id
     // cart배열에 있는 id와 내가 현재 찍은 상품의 id가 같은지 판별
@@ -119,7 +118,7 @@ $.get('store.json').then((data=>{
     $('.proStore-container').html('');
     cart.forEach((item) => {
       $('.proStore-container').append(`
-        <div class="proCard">
+        <div class="proCard proCart" data-id="${item.id}">
           <img src='${item.photo}'>
           <div class='title'>${item.title}</div>
           <div class='brand'>${item.brand}</div>
@@ -129,8 +128,33 @@ $.get('store.json').then((data=>{
       `)
     })
   })
-  
+  // 드래그 앤 드랍
+  $('.proCard').on('dragstart', function(e){
+    e.originalEvent.dataTransfer.setData('id', e.target.dataset.id)
+    console.log('start');
+  });
+
+  $('.proStore-container').on('dragover', function(e){
+    e.preventDefault();
+    console.log('over');
+  });
+
+  $('.proStore-container').on('drop', function(e){
+    console.log('drop');
+
+    let productId = e.originalEvent.dataTransfer.getData('id');
+    console.log(productId);
+
+    //여기서 장바구니 추가기능 똑같이 만들면 되는데
+    //귀찮아서 그냥 $('.add')버튼 강제 클릭으로 대체함 
+    $('.buyBtn').eq(productId).click();
+
+  });
+    
 }))
+
+
+
  // 검색어
 function search() {
     // 인풋에 넣은 값과 장바구니안에 있는 배열 요소의 값이 일치하는지? 문자 검사
@@ -147,13 +171,25 @@ function search() {
       $('.proStore-container').append(`
         <div class="proCard">
           <img src='${item.photo}'>
-          <div class='title'>${item.title}</div>
-          <div class='brand'>${item.brand}</div>
+          <div class='title'><h4>${item.title}</h4></div>
+          <div class='brand'><h4>${item.brand}</h4></div>
           <div class='price'>${item.price}</div>
-          <div class='price'>${item.cnt}</div>
         </div>
       `)
+      $('.proCard h4').each(function(index, item){
+        // 선택한 셀렉터들의 값(텍스트)
+        let title = item.innerHTML; 
+        // 선택한 셀렉터들의 문자열(searchWord)을 replace를 이용해 변경
+        title = title.replace(searchWord, `<span style="background : yellow">${searchWord}</span>`);
+        console.log(item.innerHTML);
+
+        item.innerHTML = title;
+      })
+      
+        // $('.searchWord').css('color')
+        // document.querySelector('.searchWord').style.color = 'red';
     })
   })
 }
 search()
+// 드래그앤 드랍
